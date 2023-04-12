@@ -1,6 +1,9 @@
 #!/bin/bash
 
-. utils.sh
+# 6266203281:AAF3PEwOIwx5g5Hl0qylmP_HOOxOejr9_wg
+# pip3 install --force-reinstall -v "python-telegram-bot==13.5"
+
+source utils.sh
 
 # ==================================================================
 # region variables
@@ -23,25 +26,25 @@ scales=(
 
 losses=(
   "l1"
-  "adaptive"
-  "lpips"
-  "l1 + lpips"
-  "adaptive + lpips"
-  "adaptive + pencil_sketch"
-  "adaptive + edge_loss"
+  #"adaptive"
+  #"lpips"
+  #"l1 + lpips"
+  #"adaptive + lpips"
+  #"adaptive + pencil_sketch"
+  #"adaptive + edge_loss"
   )
 
 models_params=(
-  "ddbpn DDBPN"
+  #"ddbpn DDBPN"
   "edsr EDSR_baseline --n_resblocks 16 --n_feats 64 --res_scale 0.1"
-  "edsr EDSR --n_resblocks 32 --n_feats 256 --res_scale 0.1"
-  "rdn RDN_ablation --rdn_config A"
-  "rdn RDN --rdn_config B"
-  "rcan RCAN --n_feats 64 --reduction 16 --n_resgroups 10 --n_resblocks 20"
-  "srcnn SRCNN"
-  "srresnet SRResNet"
-  "wdsr WDSR_A --type A"
-  "wdsr WDSR_B --type B"
+ #"edsr EDSR --n_resblocks 32 --n_feats 256 --res_scale 0.1"
+ # "rdn RDN_ablation --rdn_config A"
+  #"rdn RDN --rdn_config B"
+  #"rcan RCAN --n_feats 64 --reduction 16 --n_resgroups 10 --n_resblocks 20"
+  #"srcnn SRCNN"
+  #"srresnet SRResNet"
+  #"wdsr WDSR_A --type A"
+  #"wdsr WDSR_B --type B"
 )
 
 optimizers=(
@@ -55,9 +58,9 @@ optimizers=(
 
 ## training params
 batch_size=16
-check_val_every_n_epoch=25
+check_val_every_n_epoch=5 #25
 datasets_dir="/datasets"
-epochs=2000
+epochs=10 #2000
 eval_datasets="DIV2K Set5 Set14 B100 Urban100"
 log_level="info"
 log_loss_every_n_epochs=10
