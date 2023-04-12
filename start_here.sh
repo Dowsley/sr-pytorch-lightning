@@ -1,18 +1,20 @@
 #!/bin/bash
 
-. utils.sh
+telegram-send "Execution of start_here.sh started"
+
+source utils.sh
 
 # ==================================================================
 # region variables
 # ------------------------------------------------------------------
 
 models=(
-  # "edsr"
-  "srcnn"
+  "edsr"
+  # "srcnn"
 )
 
 # training params
-enable_training=1
+enable_training=0
 datasets_dir="/datasets"
 epochs=10
 gpu_to_use=0
@@ -28,7 +30,7 @@ train_dataset="DIV2K"
 # download from HuggingFace datasets
 # else, it will look for it in $datasets_dir/DATASET_NAME/
 # eval_datasets="DIV2K Set5 Set14 B100 Urban100"
-eval_datasets="Set5 Set14"
+eval_datasets="DIV2K"
 
 # model params
 scale=4
@@ -114,3 +116,5 @@ for model in "${models[@]}"; do
     LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
   fi
 done
+
+telegram-send "Execution of start_here.sh finished"
