@@ -36,12 +36,12 @@ losses=(
 
 models_params=(
   #"ddbpn DDBPN"
-  "edsr EDSR_baseline --n_resblocks 16 --n_feats 64 --res_scale 0.1"
+  # "edsr EDSR_baseline --n_resblocks 16 --n_feats 64 --res_scale 0.1"
  #"edsr EDSR --n_resblocks 32 --n_feats 256 --res_scale 0.1"
  # "rdn RDN_ablation --rdn_config A"
   #"rdn RDN --rdn_config B"
   #"rcan RCAN --n_feats 64 --reduction 16 --n_resgroups 10 --n_resblocks 20"
-  #"srcnn SRCNN"
+  "srcnn SRCNN"
   #"srresnet SRResNet"
   #"wdsr WDSR_A --type A"
   #"wdsr WDSR_B --type B"

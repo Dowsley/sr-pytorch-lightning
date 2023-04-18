@@ -452,7 +452,7 @@ class SRModel(pl.LightningModule, ABC):
                             image_channels='first',
                             step=self.global_step
                         )
-
+        
         return img_sr
 
     def _create_losses(self, losses_str: str, patch_size: int, precision: int=32) -> List[_SubLoss]:

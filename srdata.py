@@ -59,6 +59,7 @@ class _SRDatasetFromDirectory(Dataset):
         lr_data_dir: Optional[Union[str, Path]] = None,
         hr_data_dir: Optional[Union[str, Path]] = None,
     ):
+        # import pdb; pdb.set_trace()
         assert patch_size % scale_factor == 0, f'patch_size ({patch_size}) should be divisible by scale_factor ({scale_factor})'
         assert (mode == 'train' and patch_size != 0) or mode != 'train'
         assert hr_data_dir is not None or mode == 'predict'
@@ -188,7 +189,6 @@ class _SRDatasetFromDirectory(Dataset):
         and the equivalent (patch_size/scale x patch_size/scale) from the LR image
         """
         assert patch_size % scale == 0, f'patch size ({patch_size}) must be divisible by scale ({scale})'
-
         lr_patch_size = patch_size // scale
         lr_h, lr_w = lr_image.size
 
@@ -198,6 +198,8 @@ class _SRDatasetFromDirectory(Dataset):
 
         hr_x = scale * lr_x
         hr_y = scale * lr_y
+
+        print(lr_patch_size)
 
         lr_patch = TF.crop(lr_image, lr_x, lr_y, lr_patch_size, lr_patch_size)
         hr_patch = TF.crop(hr_image, hr_x, hr_y, patch_size, patch_size)
@@ -346,6 +348,7 @@ class SRData(LightningDataModule):
             self._patch_size = 128
 
     def prepare_data(self):
+        # import pdb; pdb.set_trace()
         # download, split, etc...
         # only called on 1 GPU/TPU in distributed
         for i in range(len(self._train_datasets_names)):
