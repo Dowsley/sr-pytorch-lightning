@@ -152,7 +152,6 @@ class _SRDatasetFromDirectory(Dataset):
                 ])
 
     def __getitem__(self, index: int) -> Dict[str, Union[str, Tensor]]:
-        import pdb; pdb.set_trace()
         if self._hr_filenames is not None:
             filename = self._hr_filenames[index]
         else:
@@ -165,15 +164,14 @@ class _SRDatasetFromDirectory(Dataset):
             img_hr = img
 
         if self._lr_filenames is None:
-            import pdb; pdb.set_trace()
             down_size = [l // self._scale_factor for l in img_hr.size[::-1]]
             img_lr = TF.resize(img_hr, down_size, interpolation=Image.BICUBIC) # XXX Interpolation ALREADY happens, what?! (ok this does not enter unless the img is non-existent)
         else:
             img_lr = Image.open(self._lr_filenames[index]).convert('RGB')
             img_lr, img_hr = self._get_patch(img_lr, img_hr, self._patch_size, self._scale_factor) # TODO PATCH HERE
 
-        assert img_lr.size[-2] == img_hr.size[-2] // self._scale_factor and \
-            img_lr.size[-1] == img_hr.size[-1] // self._scale_factor
+        # assert img_lr.size[-2] == img_hr.size[-2] // self._scale_factor and \
+            # img_lr.size[-1] == img_hr.size[-1] // self._scale_factor
 
         return {'lr': TF.to_tensor(img_lr), 'hr': TF.to_tensor(img_hr), 'path': filename.stem}
 
@@ -207,7 +205,8 @@ class _SRDatasetFromDirectory(Dataset):
         lr_patch = TF.crop(lr_image, lr_x, lr_y, lr_patch_size, lr_patch_size)
         hr_patch = TF.crop(hr_image, hr_x, hr_y, patch_size, patch_size)
 
-        return lr_patch, hr_patch
+        return lr_image, hr_patch
+        # return lr_patch, hr_patch
 
 
 class _SRDataset(Dataset):
