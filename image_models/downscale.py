@@ -29,7 +29,7 @@ with h5py.File(normal_h5,'r') as f:
         if i >= LENGTH:
             break
         img_arr = f['images'][i,:]   # slice notation gets [i,:,:,:]
-        img_arr = downsample(img_arr, 2)
-        cv2.imwrite(f'G10_downscaled_2x/test_img_{i:03}.jpg',img_arr)
+        img_arr = downsample(img_arr, FACTOR)
+        cv2.imwrite(f'G10_downscaled_{FACTOR}x/test_img_{i:03}.jpg',img_arr)
         
         print(i)
