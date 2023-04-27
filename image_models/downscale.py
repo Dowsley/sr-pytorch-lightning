@@ -10,14 +10,13 @@ def downsample(img, factor):
     width = int(img.shape[1] * scale_percent / 100)
     height = int(img.shape[0] * scale_percent / 100)
     dim = (width, height)
-    resized2x = cv2.resize(img, dim, interpolation = cv2.INTER_CUBIC)
+    resized = cv2.resize(img, dim, interpolation = cv2.INTER_CUBIC)
     
-    return resized2x
-    blur2x = cv2.GaussianBlur(resized2x,(5,5),0)
-    sp2x = salt_and_pepper(resized2x)
+    return resized
+    blur2x = cv2.GaussianBlur(resized,(5,5),0)
+    sp2x = salt_and_pepper(resized)
 
 normal_h5 = 'Galaxy10_DECals.h5'
-downscaled_h5 = 'Galaxy10_DECals_downscaled.h5'
 
 LENGTH = 100
 FACTOR = 4
@@ -30,6 +29,7 @@ with h5py.File(normal_h5,'r') as f:
         if i >= LENGTH:
             break
         img_arr = f['images'][i,:]   # slice notation gets [i,:,:,:]
-        cv2.imwrite(f'downscaled_g10/test_img_{i:03}.jpg',img_arr)
+        img_arr = downsample(img_arr, 2)
+        cv2.imwrite(f'G10_downscaled_2x/test_img_{i:03}.jpg',img_arr)
         
         print(i)
