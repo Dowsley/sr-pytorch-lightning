@@ -51,6 +51,9 @@ predict_datasets="G10"
 
 # endregion
 
+# enable metrics
+enable_metrics=0
+
 # ==================================================================
 # region configuring and running
 # ------------------------------------------------------------------
@@ -103,22 +106,27 @@ for model in "${models[@]}"; do
   #   LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
   # fi
 
-  if [ "$enable_predict" ] ; then
-    telegram-send "Predict enabled and starting"
-    python predict.py \
-        --accelerator gpu \
-        --checkpoint "experiments/$upper_case_model_name"_$save_dir/checkpoints/last.ckpt \
-        --datasets_dir $datasets_dir \
-        --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
-        --devices -1 \
-        --log_level info \
-        --loggers tensorboard \
-        --model $model \
-        --predict_datasets $predict_datasets \
-        --scale_factor $scale
+  # if [ "$enable_predict" ] ; then
+  #   telegram-send "Predict enabled and starting"
+  #   python predict.py \
+  #       --accelerator gpu \
+  #       --checkpoint "experiments/$upper_case_model_name"_$save_dir/checkpoints/last.ckpt \
+  #       --datasets_dir $datasets_dir \
+  #       --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
+  #       --devices -1 \
+  #       --log_level info \
+  #       --loggers tensorboard \
+  #       --model $model \
+  #       --predict_datasets $predict_datasets \
+  #       --scale_factor $scale
 
-    LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
+  #   LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
+  # fi
+
+  if [ "$enable_metrics" ] ; then
+    echo "OMG!"
   fi
+
 done
 
 telegram-send "Execution of start_here.sh finished"
