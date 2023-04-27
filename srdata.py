@@ -200,8 +200,6 @@ class _SRDatasetFromDirectory(Dataset):
         hr_x = scale * lr_x
         hr_y = scale * lr_y
 
-        print(lr_patch_size)
-
         lr_patch = TF.crop(lr_image, lr_x, lr_y, lr_patch_size, lr_patch_size)
         hr_patch = TF.crop(hr_image, hr_x, hr_y, patch_size, patch_size)
 
