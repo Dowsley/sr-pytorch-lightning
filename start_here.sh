@@ -34,8 +34,8 @@ train_dataset="DIV2K"
 eval_datasets="DIV2K"
 
 # model params
-scale=2
-patch_size=128
+scale=4
+patch_size=64
 
 # log params
 log_loss_every_n_epochs=2
@@ -74,6 +74,7 @@ SECONDS=0
 
 for model in "${models[@]}"; do
   previous_time=$SECONDS
+  upper_case_model_name=${model^^}
 
   # if [ -n "$enable_training" ] ; then
   #   telegram-send "Training enabled and starting"
@@ -106,9 +107,9 @@ for model in "${models[@]}"; do
     telegram-send "Predict enabled and starting"
     python predict.py \
         --accelerator gpu \
-        --checkpoint "experiments/$model"_$save_dir/checkpoints/last.ckpt \
+        --checkpoint "experiments/$upper_case_model_name"_$save_dir/checkpoints/last.ckpt \
         --datasets_dir $datasets_dir \
-        --default_root_dir "experiments/$model"_$save_dir \
+        --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
         --devices -1 \
         --log_level info \
         --loggers tensorboard \
