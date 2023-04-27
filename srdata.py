@@ -128,14 +128,14 @@ class _SRDatasetFromDirectory(Dataset):
         elif mode == 'predict':
             self._lr_filenames.sort()
 
-            # if patch_size > 0:
-            #     self._transforms = transforms.Compose([
-            #         transforms.CenterCrop(patch_size)
-            #     ])
-            # else:
-            #     self._transforms = transforms.Compose([
-            #         _CropIfOddSize(self._scale_factor)
-            #     ])
+            if patch_size > 0:
+                self._transforms = transforms.Compose([
+                    transforms.CenterCrop(patch_size)
+                ])
+            else:
+                self._transforms = transforms.Compose([
+                    _CropIfOddSize(self._scale_factor)
+                ])
 
         else:  # mode == 'eval' or mode == 'test':
             self._hr_filenames.sort()
@@ -164,8 +164,9 @@ class _SRDatasetFromDirectory(Dataset):
             img_hr = img
 
         if self._lr_filenames is None:
+            import pdb; pdb.set_trace()
             down_size = [l // self._scale_factor for l in img_hr.size[::-1]]
-            img_lr = TF.resize(img_hr, down_size, interpolation=Image.BICUBIC)
+            img_lr = TF.resize(img_hr, down_size, interpolation=Image.BICUBIC) # Interpolation ALREADY happens, what?!
         else:
             img_lr = Image.open(self._lr_filenames[index]).convert('RGB')
             img_lr, img_hr = self._get_patch(img_lr, img_hr, self._patch_size, self._scale_factor)
