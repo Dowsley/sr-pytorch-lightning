@@ -124,17 +124,18 @@ class _SRDatasetFromDirectory(Dataset):
                 else:
                     self._transforms = None
 
+        # TODO Patch 1
         elif mode == 'predict':
             self._lr_filenames.sort()
 
-            if patch_size > 0:
-                self._transforms = transforms.Compose([
-                    transforms.CenterCrop(patch_size)
-                ])
-            else:
-                self._transforms = transforms.Compose([
-                    _CropIfOddSize(self._scale_factor)
-                ])
+            # if patch_size > 0:
+            #     self._transforms = transforms.Compose([
+            #         transforms.CenterCrop(patch_size)
+            #     ])
+            # else:
+            #     self._transforms = transforms.Compose([
+            #         _CropIfOddSize(self._scale_factor)
+            #     ])
 
         else:  # mode == 'eval' or mode == 'test':
             self._hr_filenames.sort()
@@ -255,6 +256,7 @@ class _SRDataset(Dataset):
                     hr_image = TF.vflip(hr_image)
                     lr_image = TF.vflip(lr_image)
 
+        # TODO Patch 2
         else:
             if self._patch_size > 0:
                 hr_image = TF.center_crop(hr_image, output_size=self._patch_size)
@@ -451,6 +453,7 @@ class SRData(LightningDataModule):
             self._eval_datasets = datasets
 
         # if stage in (None, 'test'):
+        # TODO Patch 3
         if stage in ('predict',):
             datasets = []
             for dataset in self._predict_datasets_names:
