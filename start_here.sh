@@ -34,7 +34,7 @@ train_dataset="DIV2K"
 eval_datasets="DIV2K"
 
 # model params
-scale=4
+scale=2
 patch_size=128
 
 # log params
