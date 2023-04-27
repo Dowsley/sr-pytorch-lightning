@@ -1,5 +1,5 @@
 # Improvements over Repo
-- [ ] Fix WRONG prediction directory with uppercases
+- [X] Fix WRONG prediction directory with uppercases
 
 # TODOs
 - [X] Find a way to make prediction work -> Patches
@@ -7,3 +7,7 @@
     - Apply!
 - [ ] Get results with PSNR and SSIM via scikit learn
 - [ ] Write stuff
+
+# Duvidas
+    - Devo fazer preto em branco?
+    - 
