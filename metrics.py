@@ -1,4 +1,5 @@
 import argparse
+import json
 from skimage.metrics import structural_similarity as calculate_ssim
 from skimage.metrics import peak_signal_noise_ratio as calculate_psnr
 import cv2
@@ -35,5 +36,17 @@ if __name__ == '__main__':
         psnr_score = calculate_psnr(before, after)
         psnr_scores.append(psnr_score)
 
-    print(max(ssim_scores))
-    print(max(psnr_scores))
+    # Data to be written
+    data = {
+        "psnr_mean": mean(psnr_scores),
+        "psnr_score": psnr_scores,
+        "ssim_mean": mean(ssim_scores),
+        "ssim_score": ssim_scores,
+    }
+    # Serializing json
+    json_object = json.dumps(data, indent=4)
+    
+    # Writing to sample.json
+    with open(f'{args.default_root_dir}/metrics.json', "w") as outfile:
+        outfile.write(json_object)
+
