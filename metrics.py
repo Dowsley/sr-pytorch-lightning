@@ -15,7 +15,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     original_dir = f'{args.datasets_dir}/{args.predict_datasets}'
     sr_dir = f'{args.default_root_dir}/{args.predict_datasets}'
-    print(original_dir, sr_dir)
+
     length = len(listdir(original_dir))
 
     ssim_scores = []
