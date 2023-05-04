@@ -21,14 +21,16 @@ if __name__ == '__main__':
     ssim_scores = []
     psnr_scores = []
     for i in range(length):
-        before = cv2.imread(f'{args.datasets_dir}/{args.predict_datasets}/test_img_{i:03}.jpg')
-        after = cv2.imread(f'{args.default_root_dir}/{args.predict_datasets}/test_img_{i:03}.png')
+        before = cv2.imread(f'{original_dir}/test_img_{i:03}.jpg')
+        after = cv2.imread(f'{sr_dir}/test_img_{i:03}.png')
 
         # Convert images to grayscale
         # before_gray = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
         # after_gray = cv2.cvtColor(after, cv2.COLOR_BGR2GRAY)
 
         # Compute SSIM between two images
+        print(before.shape)
+        print(after.shape)
         (ssim_score, ssim_diff) = calculate_ssim(before, after, channel_axis=2, full=True)
         ssim_scores.append(ssim_score)
         psnr_score = calculate_psnr(before, after)
