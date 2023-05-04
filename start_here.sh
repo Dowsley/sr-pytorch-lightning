@@ -9,12 +9,12 @@ source utils.sh
 # ------------------------------------------------------------------
 
 models=(
-  # "edsr"
-  "srcnn"
+  "edsr"
+  # "srcnn"
 )
 
 # training params
-#enable_training=1
+enable_training=1
 datasets_dir="/datasets"
 epochs=200
 gpu_to_use=0
@@ -43,7 +43,7 @@ check_val_every_n_epoch=5
 send_telegram_msg=1
 
 # enable prediction
-#enable_predict=1
+enable_predict=1
 # paths must be like
 # $datasets_dir/DATASET_1_NAME/*.png
 # $datasets_dir/DATASET_2_NAME/*.png
