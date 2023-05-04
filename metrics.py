@@ -29,8 +29,6 @@ if __name__ == '__main__':
         # after_gray = cv2.cvtColor(after, cv2.COLOR_BGR2GRAY)
 
         # Compute SSIM between two images
-        print(before.shape)
-        print(after.shape)
         (ssim_score, ssim_diff) = calculate_ssim(before, after, channel_axis=2, full=True)
         ssim_scores.append(ssim_score)
         psnr_score = calculate_psnr(before, after)
