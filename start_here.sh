@@ -14,7 +14,7 @@ models=(
 )
 
 # training params
-enable_training=1
+#enable_training=1
 datasets_dir="/datasets"
 epochs=200
 gpu_to_use=0
@@ -43,11 +43,12 @@ check_val_every_n_epoch=5
 send_telegram_msg=1
 
 # enable prediction
-enable_predict=1
+#enable_predict=1
 # paths must be like
 # $datasets_dir/DATASET_1_NAME/*.png
 # $datasets_dir/DATASET_2_NAME/*.png
 predict_datasets="G10"
+original_datasets="G10_original"
 
 # endregion
 
@@ -128,7 +129,8 @@ for model in "${models[@]}"; do
     python metrics.py \
         --datasets_dir $datasets_dir \
         --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
-        --predict_datasets $predict_datasets
+        --predict_datasets $predict_datasets \
+        --original_datasets $original_datasets
 
     LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
   fi

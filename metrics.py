@@ -10,10 +10,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Evaluate image quality.')
     parser.add_argument('--datasets_dir', type=str)
     parser.add_argument('--default_root_dir', type=str) 
+    parser.add_argument('--original_datasets', type=str) 
     parser.add_argument('--predict_datasets', type=str) 
 
     args = parser.parse_args()
-    original_dir = f'{args.datasets_dir}/{args.predict_datasets}'
+    original_dir = f'{args.datasets_dir}/{args.original_datasets}'
     sr_dir = f'{args.default_root_dir}/{args.predict_datasets}'
 
     length = len(listdir(original_dir))
