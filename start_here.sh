@@ -132,6 +132,7 @@ for model in "${models[@]}"; do
 
     LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
   fi
+  telegram-send "Tracking metrics finished"
 
 done
 
