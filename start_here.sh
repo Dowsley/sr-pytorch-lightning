@@ -43,7 +43,7 @@ check_val_every_n_epoch=5
 send_telegram_msg=1
 
 # enable prediction
-enable_predict=1
+# enable_predict=1
 # paths must be like
 # $datasets_dir/DATASET_1_NAME/*.png
 # $datasets_dir/DATASET_2_NAME/*.png
@@ -52,7 +52,7 @@ predict_datasets="G10"
 # endregion
 
 # enable metrics
-enable_metrics=0
+enable_metrics=1
 
 # ==================================================================
 # region configuring and running
@@ -79,52 +79,57 @@ for model in "${models[@]}"; do
   previous_time=$SECONDS
   upper_case_model_name=${model^^}
 
-  # if [ -n "$enable_training" ] ; then
-  #   telegram-send "Training enabled and starting"
-  #   python train.py \
-  #       --accelerator gpu \
-  #       --check_val_every_n_epoch $check_val_every_n_epoch \
-  #       --datasets_dir $datasets_dir \
-  #       --default_root_dir "experiments/$model"_$save_dir \
-  #       --devices -1 \
-  #       --eval_datasets $eval_datasets \
-  #       --log_level info \
-  #       --log_loss_every_n_epochs $log_loss_every_n_epochs \
-  #       --loggers tensorboard \
-  #       --losses "$losses" \
-  #       --max_epochs $epochs \
-  #       --metrics $metrics \
-  #       --metrics_for_pbar PSNR \
-  #       --model $model \
-  #       --optimizer $optimizer \
-  #       --patch_size $patch_size \
-  #       --save_results -1 \
-  #       --save_results_from_epoch last \
-  #       --scale_factor $scale \
-  #       --train_datasets $train_dataset
+  if [ -n "$enable_training" ] ; then
+    telegram-send "Training enabled and starting"
+    python train.py \
+        --accelerator gpu \
+        --check_val_every_n_epoch $check_val_every_n_epoch \
+        --datasets_dir $datasets_dir \
+        --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
+        --devices -1 \
+        --eval_datasets $eval_datasets \
+        --log_level info \
+        --log_loss_every_n_epochs $log_loss_every_n_epochs \
+        --loggers tensorboard \
+        --losses "$losses" \
+        --max_epochs $epochs \
+        --metrics $metrics \
+        --metrics_for_pbar PSNR \
+        --model $model \
+        --optimizer $optimizer \
+        --patch_size $patch_size \
+        --save_results -1 \
+        --save_results_from_epoch last \
+        --scale_factor $scale \
+        --train_datasets $train_dataset
 
-  #   LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
-  # fi
+    LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
+  fi
 
-  # if [ "$enable_predict" ] ; then
-  #   telegram-send "Predict enabled and starting"
-  #   python predict.py \
-  #       --accelerator gpu \
-  #       --checkpoint "experiments/$upper_case_model_name"_$save_dir/checkpoints/last.ckpt \
-  #       --datasets_dir $datasets_dir \
-  #       --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
-  #       --devices -1 \
-  #       --log_level info \
-  #       --loggers tensorboard \
-  #       --model $model \
-  #       --predict_datasets $predict_datasets \
-  #       --scale_factor $scale
+  if [ "$enable_predict" ] ; then
+    telegram-send "Predict enabled and starting"
+    python predict.py \
+        --accelerator gpu \
+        --checkpoint "experiments/$upper_case_model_name"_$save_dir/checkpoints/last.ckpt \
+        --datasets_dir $datasets_dir \
+        --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
+        --devices -1 \
+        --log_level info \
+        --loggers tensorboard \
+        --model $model \
+        --predict_datasets $predict_datasets \
+        --scale_factor $scale
 
-  #   LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
-  # fi
+    LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
+  fi
 
   if [ "$enable_metrics" ] ; then
-    echo "OMG!"
+    telegram-send "Tracking metrics"
+    python metrics.py \
+        --datasets_dir $datasets_dir \
+        --default_root_dir "experiments/$upper_case_model_name"_$save_dir
+
+    LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
   fi
 
 done

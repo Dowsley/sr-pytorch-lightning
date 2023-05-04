@@ -73,7 +73,11 @@ for metric in hr_folder_4x:
     for image in range(len(hr_folder_4x[metric])):
         print("4x Folder {} {}".format(metric,image))
         if cv2.imread(hr_folder_2x[metric][image]).shape[0] == cv2.imread(original_folder[image], cv2.IMREAD_UNCHANGED).shape[0] and cv2.imread(hr_folder_2x[metric][image]).shape[1] == cv2.imread(original_folder[image], cv2.IMREAD_UNCHANGED).shape[1]:
-            score, diff = ssim(np.squeeze(cv2.imread(hr_folder_4x[metric][image], cv2.IMREAD_UNCHANGED)), np.squeeze(cv2.imread(original_folder[image], cv2.IMREAD_UNCHANGED)), full=True, channel_axis=2)
+            score, diff = ssim(
+                np.squeeze(cv2.imread(hr_folder_4x[metric][image], cv2.IMREAD_UNCHANGED)),
+                np.squeeze(cv2.imread(original_folder[image],
+                cv2.IMREAD_UNCHANGED)),
+                full=True, channel_axis=2)
             ssim_array_4x[metric].append(score)
             psnr_array_4x[metric].append(cv2.PSNR(cv2.imread(hr_folder_4x[metric][image], cv2.IMREAD_UNCHANGED), cv2.imread(original_folder[image], cv2.IMREAD_UNCHANGED)))
 

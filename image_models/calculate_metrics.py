@@ -16,14 +16,14 @@ for i in range(length):
     after = cv2.imread(f'{sr_folder_prefix}/test_img_{i:03}.png')
 
     # Convert images to grayscale
-    before_gray = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
-    after_gray = cv2.cvtColor(after, cv2.COLOR_BGR2GRAY)
+    # before_gray = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
+    # after_gray = cv2.cvtColor(after, cv2.COLOR_BGR2GRAY)
 
     # Compute SSIM between two images
-    (ssim_score, ssim_diff) = calculate_ssim(before_gray, after_gray, full=True)
+    (ssim_score, ssim_diff) = calculate_ssim(before, after, channel_axis=2, full=True)
     ssim_scores.append(ssim_score)
-    psnr_score = calculate_psnr(before_gray, after_gray)
+    psnr_score = calculate_psnr(before, after)
     psnr_scores.append(psnr_score)
 
-print(f"Mean SSIM Score: {mean(ssim_scores)}")
+print(f"Mean SSIM Score: {mean(ssim_scores)*100}")
 print(f"Mean PSNR Score: {mean(psnr_scores)}")
