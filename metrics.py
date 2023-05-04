@@ -14,9 +14,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    original_folder_prefix = 'G10_original'
-    sr_folder_prefix = 'G10_sr_from_x4_wrong_model_only_bicubic'
-    length = len(listdir(original_folder_prefix))
+    length = len(listdir(f'{args.datasets_dir}/{args.predict_datasets}'))
 
     ssim_scores = []
     psnr_scores = []

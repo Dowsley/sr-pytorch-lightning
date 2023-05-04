@@ -16,7 +16,7 @@
 - [ ] Fix log_loss_after_n_steps
 - [ ] Officialize test pipeline
 - [ ] Parallelization over N gpus
-- [ ] Add dependency "scikit-image"
+- [ ] Add dependency "scikit-image", "opencv-python"
 
 # Bugs
 - [ ] Resolver Loss logging (mt espaçado, 500)
