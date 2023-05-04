@@ -37,12 +37,25 @@ if __name__ == '__main__':
         psnr_scores.append(psnr_score)
 
     # Data to be written
+    psnr = {
+        mean: mean(psnr_scores),        
+    }
     data = {
         "psnr_mean": mean(psnr_scores),
-        "psnr_score": psnr_scores,
+        "psnr_scores": psnr_scores,
+        "max_psnr": max(psnr_scores),
         "ssim_mean": mean(ssim_scores),
-        "ssim_score": ssim_scores,
+        "ssim_scores": ssim_scores,
+        "ssim_max": max(ssim_scores),
     }
+
+    print(f'--- PSNR ---')
+    print(f'Mean: {data['psnr_mean']}')
+    print(f'Max: {data['psnr_max']}, {ssim_scores.index(data['psnr_max']})th image (0-indexed)')
+    print(f'--- SSIM ---')
+    print(f'Mean: {data['ssim_mean']}')
+    print(f'Max: {data['ssim_max']}, {ssim_scores.index(data['ssim_max'])}th image (0-indexed)')
+
     # Serializing json
     json_object = json.dumps(data, indent=4)
     
