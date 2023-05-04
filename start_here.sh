@@ -127,7 +127,8 @@ for model in "${models[@]}"; do
     telegram-send "Tracking metrics"
     python metrics.py \
         --datasets_dir $datasets_dir \
-        --default_root_dir "experiments/$upper_case_model_name"_$save_dir
+        --default_root_dir "experiments/$upper_case_model_name"_$save_dir \
+        --predict_datasets $predict_datasets
 
     LogElapsedTime $(( $SECONDS - $previous_time )) "$model"_$save_dir $send_telegram_msg
   fi

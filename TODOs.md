@@ -16,6 +16,7 @@
 - [ ] Fix log_loss_after_n_steps
 - [ ] Officialize test pipeline
 - [ ] Parallelization over N gpus
+- [ ] Add dependency "scikit-image"
 
 # Bugs
 - [ ] Resolver Loss logging (mt espaçado, 500)
@@ -25,3 +26,4 @@
 - Trabalhos Futuros
     - Insights into effectiveness of different labels
     - Better metrics for astronomical images
+- Uso de Vast.ai
