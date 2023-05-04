@@ -38,23 +38,26 @@ if __name__ == '__main__':
 
     # Data to be written
     psnr = {
-        mean: mean(psnr_scores),        
+        'scores': psnr_scores,
+        'mean': mean(psnr_scores),
+        'max': psnr_scores.index(max(psnr_scores))
+    }
+    ssim = {
+        'scores': ssim_scores,
+        'mean': mean(ssim_scores),
+        'max': ssim_scores.index(max(ssim_scores))
     }
     data = {
-        "psnr_mean": mean(psnr_scores),
-        "psnr_scores": psnr_scores,
-        "max_psnr": max(psnr_scores),
-        "ssim_mean": mean(ssim_scores),
-        "ssim_scores": ssim_scores,
-        "ssim_max": max(ssim_scores),
+        'psnr' : psnr,
+        'ssim': ssim
     }
 
     print(f'--- PSNR ---')
-    print(f'Mean: {data['psnr_mean']}')
-    print(f'Max: {data['psnr_max']}, {ssim_scores.index(data['psnr_max']})th image (0-indexed)')
+    print(f'Mean: {psnr["mean"]}')
+    print(f'Max: {psnr["scores"][psnr["max"]]}, {psnr["max"]})th image (0-indexed)')
     print(f'--- SSIM ---')
-    print(f'Mean: {data['ssim_mean']}')
-    print(f'Max: {data['ssim_max']}, {ssim_scores.index(data['ssim_max'])}th image (0-indexed)')
+    print(f'Mean: {ssim["mean"]}')
+    print(f'Max: {ssim["scores"][ssim["max"]]}, {ssim["max"]})th image (0-indexed)')
 
     # Serializing json
     json_object = json.dumps(data, indent=4)
