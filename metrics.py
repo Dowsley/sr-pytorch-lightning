@@ -35,5 +35,5 @@ if __name__ == '__main__':
         psnr_score = calculate_psnr(before, after)
         psnr_scores.append(psnr_score)
 
-    print(sum(ssim_scores))
-    print(sum(psnr_scores))
+    print(max(ssim_scores))
+    print(max(psnr_scores))
