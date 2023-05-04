@@ -209,6 +209,7 @@ class SRModel(pl.LightningModule, ABC):
             losses_dict.pop('loss', None)
             self.log_dict(losses_dict, prog_bar=False, logger=True, add_dataloader_idx=False)
 
+        import pdb; pdb.set_trace()
         if not self.trainer.sanity_checking:
             if (self.current_epoch + 1) % self._log_loss_every_n_epochs == 0 and len(outputs) > 0:
                 last_result = outputs[-1]

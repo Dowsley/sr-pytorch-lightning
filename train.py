@@ -302,7 +302,6 @@ if __name__ == '__main__':
                         default='srcnn')
     parser.add_argument('--patch_size', type=int, default=128)
     parser.add_argument('-s', '--scale_factor', type=int, default=4)
-    parser.add_argument('--log_loss_every_n_epochs', type=int, default=50)
     args, remaining = parser.parse_known_args()
 
     # load model class
