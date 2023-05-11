@@ -4,9 +4,10 @@
 - [X] Get results with PSNR and SSIM via scikit learn
 - [X] Write stuff
 - [ ] How does DIV2K make a bicubic? Then Apply.
-- [ ] Save individual img results (and make a way to view them)
+- [X] Save individual img results (and make a way to view them)
     - This might even give me some new insights
 - [ ] Fix log_every_n_step thing (Possible improvement over repo)
+- [ ] Extra at the very end: Predict newest JWST images of early universe with the best model found.
 
 # Improvements over Repo
 - [X] Breaking function call
@@ -27,3 +28,13 @@
     - Insights into effectiveness of different labels
     - Better metrics for astronomical images
 - Uso de Vast.ai
+
+# FEEDBACKS
+## Feedback 4th May
+- UNIR tudo de comparison vs start_here
+- Retreinar tudo com X2!
+- Comparar resultados (metrics vs training)
+    - Justificativas
+    - Comparar pq os modelos falharam
+- Apêndice, e incluir contribuições.
+- LOGGAR GRAFICO NA MAO DE UMA VEZ POR TODAS

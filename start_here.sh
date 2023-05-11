@@ -9,14 +9,20 @@ source utils.sh
 # ------------------------------------------------------------------
 
 models=(
+  "ddbpn"
   "edsr"
+  "rdn"
+  "rcan"
   "srcnn"
+  "srgan"
+  "srresnet"
+  "wdsr"
 )
 
 # training params
-#enable_training=1
+enable_training=1
 datasets_dir="/datasets"
-epochs=200
+epochs=100
 gpu_to_use=0
 # losses="adaptive + lpips"
 losses="l1"
@@ -34,8 +40,8 @@ train_dataset="DIV2K"
 eval_datasets="DIV2K"
 
 # model params
-scale=4
-patch_size=64
+scale=2
+patch_size=128
 
 # log params
 log_loss_every_n_epochs=2
