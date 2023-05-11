@@ -15,8 +15,7 @@ env.bak/
 venv.bak/
 
 # Experiments results
-experiments/
+experiments*/
 
 # Comet configuration
 # .comet.config
-experiments_old
