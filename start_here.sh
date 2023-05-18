@@ -14,7 +14,7 @@ models=(
   "rdn"
   "rcan"
   "srcnn"
-  "srgan"
+  # "srgan"
   "srresnet"
   "wdsr"
 )
