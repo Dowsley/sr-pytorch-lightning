@@ -38,3 +38,23 @@
     - Comparar pq os modelos falharam
 - Apêndice, e incluir contribuições.
 - LOGGAR GRAFICO NA MAO DE UMA VEZ POR TODAS
+
+## Feedback 18th may
+FAZER NA ORDEM!!!!!!!!!!!!!!!!
+
+- [ ] Quais os parâmetros para a rede? Para não comparar maçã com laranja. Preciso escrever sobre isso. **ASAP**.
+    - [ ] Pegar o sumário de cada rede.
+- [ ] Escrever achados
+    - [ ] dissertar sobre melhores e piores resultados (i.e. EDSR)
+    - [ ] Comparar resultados entre si
+        - [ ] Usar métrica GMS com a original
+        - [ ] Usar PSNR e SSIM entre elas
+- [ ] Dissertação
+    - [ ] Referencial teórico, falar de cada rede usada, citar.
+    - [ ] Processo de machine learning (train e test)
+    - [ ] PSNR e SSIM
+
+### EXTRA ASYNC (Não perder tempo plmds)
+- [ ] Treinar com outras losses
+- [ ] Implementation details for each model para reproducibilidade.
+- [ ] Ablation Studies
