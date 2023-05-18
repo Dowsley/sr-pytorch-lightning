@@ -1,0 +1,23 @@
+  File "/opt/conda/lib/python3.8/site-packages/fsspec/spec.py", line 1135, in open
+    f = self._open(
+  File "/opt/conda/lib/python3.8/site-packages/fsspec/implementations/local.py", line 183, in _open
+    return LocalFileOpener(path, mode, fs=self, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/fsspec/implementations/local.py", line 285, in __init__
+    self._open()
+  File "/opt/conda/lib/python3.8/site-packages/fsspec/implementations/local.py", line 290, in _open
+    self.f = open(self.path, mode=self.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/sr-pytorch-lightning/experiments/SRGAN_X2_e_0100_p_128_l1_ADAM_DIV2K/checkpoints/last.ckpt'
+Finished running srgan_X2_e_0100_p_128_l1_ADAM_DIV2K in 0 mins and 3 secs on 6b960b355e05.
+[ WARN:0@0.008] global loadsave.cpp:244 findDecoder imread_('experiments/SRGAN_X2_e_0100_p_128_l1_ADAM_DIV2K/G10_downscaled_x2/test_img_000.png'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "metrics.py", line 34, in <module>
+    (ssim_score, ssim_diff) = calculate_ssim(before, after, channel_axis=2, full=True)
+  File "/opt/conda/lib/python3.8/site-packages/skimage/metrics/_structural_similarity.py", line 111, in structural_similarity
+    check_shape_equality(im1, im2)
+  File "/opt/conda/lib/python3.8/site-packages/skimage/_shared/utils.py", line 499, in check_shape_equality
+    if not all(image0.shape == image.shape for image in images[1:]):
+  File "/opt/conda/lib/python3.8/site-packages/skimage/_shared/utils.py", line 499, in <genexpr>
+    if not all(image0.shape == image.shape for image in images[1:]):
+AttributeError: 'NoneType' object has no attribute 'shape'
+Finished running srgan_X2_e_0100_p_128_l1_ADAM_DIV2K in 0 mins and 4 secs on 6b960b355e05.
+Saving logs to /root/sr-pytorch-lightning/experiments/SRRESNET_X2_e_0100_p_128_l1_ADAM_DIV2K/run.log
