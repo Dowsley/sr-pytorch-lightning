@@ -20,7 +20,7 @@ models=(
 )
 
 # training params
-#enable_training=1
+enable_training=1
 datasets_dir="/datasets"
 epochs=100
 gpu_to_use=0
