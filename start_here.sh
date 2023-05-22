@@ -24,8 +24,8 @@ enable_training=1
 datasets_dir="/datasets"
 epochs=100
 gpu_to_use=0
-# losses="adaptive + lpips"
-losses="l1"
+losses="adaptive + pencil_sketch"
+# losses="l1"
 metrics="BRISQUE FLIP LPIPS MS-SSIM PSNR SSIM"
 optimizer="ADAM"
 
