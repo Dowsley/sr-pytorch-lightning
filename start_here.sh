@@ -25,7 +25,7 @@ datasets_dir="/datasets"
 epochs=100
 gpu_to_use=0
 # losses="adaptive + lpips"
-losses="l1"
+losses="pencil_sketch" #"l1"
 metrics="BRISQUE FLIP LPIPS MS-SSIM PSNR SSIM"
 optimizer="ADAM"
 
