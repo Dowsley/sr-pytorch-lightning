@@ -41,20 +41,24 @@
 
 ## Feedback 18th may
 FAZER NA ORDEM!!!!!!!!!!!!!!!!
-
-- [ ] Quais os parâmetros para a rede? Para não comparar maçã com laranja. Preciso escrever sobre isso. **ASAP**.
-    - [ ] Pegar o sumário de cada rede.
+- [X] Quais os parâmetros para a rede? Para não comparar maçã com laranja. Preciso escrever sobre isso. **ASAP**.
+    - [X] Pegar o sumário de cada rede.
 - [ ] Escrever achados
     - [ ] dissertar sobre melhores e piores resultados (i.e. EDSR)
     - [ ] Comparar resultados entre si
-        - [ ] Usar métrica GMS com a original
+        - [ ] Usar métrica GMS com a original (Nao consegui)
         - [ ] Usar PSNR e SSIM entre elas
-- [ ] Dissertação
-    - [ ] Referencial teórico, falar de cada rede usada, citar.
-    - [ ] Processo de machine learning (train e test)
-    - [ ] PSNR e SSIM
+- [X] Dissertação
+    - [X] Referencial teórico, falar de cada rede usada, citar.
+    - [X] Processo de machine learning (train e test)
+    - [X] PSNR e SSIM
 
 ### EXTRA ASYNC (Não perder tempo plmds)
-- [ ] Treinar com outras losses
+- [X] Treinar com outras losses
 - [ ] Implementation details for each model para reproducibilidade.
 - [ ] Ablation Studies
+- Fazer pull requests
+
+## Feedback atual
+- Verificar se ta tudo ok com o jeito que treinei, e garantir que nao vai precisar de um rerun.
+- Colocar fórmulas das métricas avaliativas
