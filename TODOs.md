@@ -43,8 +43,8 @@
 FAZER NA ORDEM!!!!!!!!!!!!!!!!
 - [X] Quais os parâmetros para a rede? Para não comparar maçã com laranja. Preciso escrever sobre isso. **ASAP**.
     - [X] Pegar o sumário de cada rede.
-- [ ] Escrever achados
-    - [ ] dissertar sobre melhores e piores resultados (i.e. EDSR)
+- [X] Escrever achados
+    - [X] dissertar sobre melhores e piores resultados (i.e. EDSR)
     - [ ] Comparar resultados entre si
         - [ ] Usar métrica GMS com a original (Nao consegui)
         - [ ] Usar PSNR e SSIM entre elas
@@ -62,3 +62,19 @@ FAZER NA ORDEM!!!!!!!!!!!!!!!!
 ## Feedback atual
 - Verificar se ta tudo ok com o jeito que treinei, e garantir que nao vai precisar de um rerun.
 - Colocar fórmulas das métricas avaliativas
+
+## Feedback 30th May
+### Banca
+- Márcio Dahia
+- Érico Teixeira
+- Eldrey Galindo (Banca)
+- Esdras (convidado)
+
+### Escrita
+- [ ] Escrever mais sobre os modelos em fiundamentação teórica (Mostrar e explicar o diagrama do modelo)
+- [ ] Deixar claro que os parâmetros usados na rede são criados pelo trabalho de George.
+    - "Para os propósitos deste trabalho, foram assumidos tal tal"
+    - Detalhes de implementação, na metodologia. Falando da quantidade de parâmetros treináveis, e não-treináveis.
+- [ ] Próximos passos (Por que tiveram resultados tão discrepantes no EDSR)?
+- [ ] Pencil Sketch atrapalha com área das imagens
+- [ ] Focar mais nas imagens -> Resultados entre elas
