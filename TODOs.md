@@ -71,10 +71,39 @@ FAZER NA ORDEM!!!!!!!!!!!!!!!!
 - Esdras (convidado)
 
 ### Escrita
-- [ ] Escrever mais sobre os modelos em fiundamentação teórica (Mostrar e explicar o diagrama do modelo)
+- [X] Endereçar feedbacks e reformatar
+- [X] Ajeitar siglas
+- [X] Fundamentação Teórica com mais cerne.
+  - [X] Parte de Astronomia toda refeita, com imagens.
+  - [X] Reescrever PSNR e SSIM com mais exemplos
+  - [X] Rever Training & Testing (tá precisando melhorar...)
+  - [X] Explicar melhor a pipeline de super-resolução
+    - [X] convolutional layers?
+    - [?] O que é um modelo densely connected?
+    - [X] O que é Loss?
+    - [X] RESNET.
+    - [X] Melhor distinção entre SISR e MISR
+    - [X] Falar de downscaling
+    - [X] Activation functions, explicar elas
+    - [ ] DIV2K
+    - [ ] Adicionar referencias onde precisa...
+  - [X] Escrever mais sobre os modelos
+    - [X] (Mostrar e explicar o diagrama do modelo)
+    - [...] Parametros (PRIORITY)
+      - [...] Hiperparametros
+      - [...] Quantidade de Parametros
+      - [...] Reescrever algumas partes...
 - [ ] Deixar claro que os parâmetros usados na rede são criados pelo trabalho de George.
-    - "Para os propósitos deste trabalho, foram assumidos tal tal"
+    - "Para os propósitos deste trabalho, foram assumidos tal tal".
+    - Ler trabalho de George.
     - Detalhes de implementação, na metodologia. Falando da quantidade de parâmetros treináveis, e não-treináveis.
-- [ ] Próximos passos (Por que tiveram resultados tão discrepantes no EDSR)?
 - [ ] Pencil Sketch atrapalha com área das imagens
 - [ ] Focar mais nas imagens -> Resultados entre elas
+- [ ] Próximos passos (Por que tiveram resultados tão discrepantes no EDSR)?
+  - [ ] Falar também do que foi feito errado na pesquisa (considerações)
+- [ ] Contribuições
+- [ ] Citar paper de george
+
+
+# Report Final:
+- 
