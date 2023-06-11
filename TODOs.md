@@ -100,6 +100,7 @@ FAZER NA ORDEM!!!!!!!!!!!!!!!!
 - [ ] Pencil Sketch atrapalha com área das imagens
 - [ ] Focar mais nas imagens -> Resultados entre elas
 - [ ] Próximos passos (Por que tiveram resultados tão discrepantes no EDSR)?
+- [ ] Loss Graphs
   - [ ] Falar também do que foi feito errado na pesquisa (considerações)
 - [ ] Contribuições
 - [ ] Citar paper de george
