@@ -85,26 +85,39 @@ FAZER NA ORDEM!!!!!!!!!!!!!!!!
     - [X] Melhor distinção entre SISR e MISR
     - [X] Falar de downscaling
     - [X] Activation functions, explicar elas
-    - [ ] DIV2K
-    - [ ] Adicionar referencias onde precisa...
+    - [X] DIV2K
+    - [X] Adicionar referencias onde precisa...
   - [X] Escrever mais sobre os modelos
     - [X] (Mostrar e explicar o diagrama do modelo)
     - [...] Parametros (PRIORITY)
       - [...] Hiperparametros
       - [...] Quantidade de Parametros
-      - [...] Reescrever algumas partes...
-- [ ] Deixar claro que os parâmetros usados na rede são criados pelo trabalho de George.
+      - [X] Reescrever algumas partes...
+- [X] Deixar claro que os parâmetros usados na rede são criados pelo trabalho de George.
     - "Para os propósitos deste trabalho, foram assumidos tal tal".
     - Ler trabalho de George.
     - Detalhes de implementação, na metodologia. Falando da quantidade de parâmetros treináveis, e não-treináveis.
-- [ ] Pencil Sketch atrapalha com área das imagens
-- [ ] Focar mais nas imagens -> Resultados entre elas
+- [X] Pencil Sketch atrapalha com área das imagens
+- [X] Focar mais nas imagens -> Resultados entre elas
 - [ ] Próximos passos (Por que tiveram resultados tão discrepantes no EDSR)?
-- [ ] Loss Graphs
+- [X] Loss Graphs
   - [ ] Falar também do que foi feito errado na pesquisa (considerações)
-- [ ] Contribuições
-- [ ] Citar paper de george
-
-
-# Report Final:
-- 
+- [ ] Fazer pull request...
+- [X] Citar paper de george
+- [X] Mudar nome
+- [X] Escrever sobre ambiente de execução (qual computador, e mais detalhes do framework, e as métricas que ele usa)
+- [ ] Retirar páginas em branco (Fica por ultimo)
+- [X] Creditos para o MODELO que usei pra criar o Latex.
+  - [X] E ver aqueles no fim q tao em portugues
+- [X] Como mudar a capa, a data, e outros detalhes.
+- [ ] Apendice experimentos
+- [ ] Abstract
+- [ ] Sumario
+- [ ] REVISAO TOTAL
+  - [ ] De acordo com Esdras, tem muitos "pulos" em conceitos, especialmente em metodologia.
+  - [ ] Tente contar uma historia
+  - [ ] GPT para melhorar texto
+- [ ] Agradecimentos
+- [ ] Dedicatoria
+- [ ] Verify for AntiAI system
+- [ ] Paper plagiarism checker too
